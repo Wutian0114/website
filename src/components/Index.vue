@@ -54,6 +54,9 @@ ul {
 #partner-sec {
   padding: 0 50px;
 }
+#aboutUs-sec {
+  min-height: 500px;
+}
 #aboutUs-sec .address-map,
 #aboutUs-sec .company-info {
   float: left;
@@ -66,6 +69,9 @@ ul {
   border-bottom: 3px solid #32d28c;
   line-height: 50px;
   text-align: center;
+}
+#partner-sec {
+  min-height: 300px;
 }
 #partner-sec ul > li {
   float: left;
