@@ -3,17 +3,23 @@
     <Header></Header>
     <div class="main-content">
       <div id="home-sec"></div>
-      <div id="solution-sec">
-        <p>解决方案</p>
-        <ul class="solution-items clearfix">
-          <li v-for="item in solutions" :key="item.id">
-            <h4 v-text="item.title"></h4>
-            <p v-text="item.content"></p>
-          </li>
+      <div id="aboutUs-sec" class="clearfix">
+        <p class="sec-title">关于我们</p>
+        <div class="address-map">地图位置</div>
+        <div class="company-info">
+          <p>这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。</p>
+          <p>详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息</p>
+        </div>
+      </div>
+      <div id="partner-sec" class="clearfix">
+        <p class="sec-title">合作伙伴</p>
+        <ul>
+          <li><a href="https://anymod.com/" target="_blank"><img src="../assets/img/anymod.png"></a></li>
+          <li><a href="https://chaitin.cn/en/" target="_blank"><img src="../assets/img/chaitin.png"></a></li>
+          <li><a href="https://laravel.com/" target="_blank"><img src="../assets/img/laravel.png"></a></li>
+          <li><a href="https://vueschool.io/" target="_blank"><img src="../assets/img/vueschool.png"></a></li>
         </ul>
       </div>
-      <div id="aboutUs-sec"></div>
-      <div id="contactUs-sec"></div>
     </div>
     <Footer></Footer>
   </div>
@@ -25,13 +31,7 @@ import Footer from "@/components/Footer"
 export default {
   data(){
     return {
-      solutions: [
-        {id:1, title: "方案一",content: "采用更先进的签证云处理技术，帮助机构更智能地填表，一次输入从此告别繁琐的复制粘贴操作，办签更高效，材料更规范。"},
-        {id:2, title: "方案二",content: "采用更先进的签证云处理技术，帮助机构更智能地填表，一次输入从此告别繁琐的复制粘贴操作，办签更高效，材料更规范。"},
-        {id:3, title: "方案三",content: "采用更先进的签证云处理技术，帮助机构更智能地填表，一次输入从此告别繁琐的复制粘贴操作，办签更高效，材料更规范。"},
-        {id:4, title: "方案四",content: "采用更先进的签证云处理技术，帮助机构更智能地填表，一次输入从此告别繁琐的复制粘贴操作，办签更高效，材料更规范。"},
-        {id:5, title: "方案五",content: "采用更先进的签证云处理技术，帮助机构更智能地填表，一次输入从此告别繁琐的复制粘贴操作，办签更高效，材料更规范。"}
-      ]
+
     }
   },
   components: {
@@ -42,31 +42,45 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  list-style: none;
+  padding: 0;
+}
 #home-sec {
   height: 530px;
   background-color: gray;
 }
-#solution-sec > p {
+#aboutUs-sec,
+#partner-sec {
+  padding: 0 50px;
+}
+#aboutUs-sec .address-map,
+#aboutUs-sec .company-info {
+  float: left;
+  width: 50%;
+}
+.sec-title {
   text-align: center;
   font-size: 20px;
   font-weight: bolder;
-}
-#solution-sec .solution-items {
-  list-style: none;
-}
-#solution-sec .solution-items li {
-  float: left;
-  width: 150px;
-  height: 300px;
-  padding: 10px;
-  box-sizing: border-box;
-  background-color: #f2f3f5;
-  margin-right: 10px;
-}
-#solution-sec .solution-items li h4{
+  border-bottom: 3px solid #32d28c;
+  line-height: 50px;
   text-align: center;
 }
-#solution-sec .solution-items li p{
-  font-size: 14px;
+#partner-sec ul > li {
+  float: left;
+  width: 25%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
 }
+#partner-sec ul > li a {
+  vertical-align: middle;
+  display: block;
+  height: 50px;
+}
+#partner-sec ul > li img {
+  width: 160px;
+}
+
 </style>
