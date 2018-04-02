@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="nav-header">
+    <div :class="isScroll?'nav-header active':'nav-header'">
       <a class="header-logo" href="javascript:;"></a>
       <ul class="header-nav">
         <li><a href="#">首页</a></li>
@@ -15,7 +15,24 @@
 
 <script>
 export default {
-
+  data(){
+    return {
+      isScroll: false
+    }
+  },
+  mounted(){
+    window.addEventListener('scroll', this.scrollHeader)
+  },
+  methods: {
+    scrollHeader(){
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if(scrollTop > 50){
+        this.isScroll = true;
+      }else {
+        this.isScroll = false;
+      }
+    }
+  }
 }
 </script>
 
@@ -25,6 +42,10 @@ export default {
   background-color: rgba(0, 0, 0, .3);
   position: fixed;
   width: 100%;
+  z-index: 99;
+}
+.nav-header.active {
+  background-color: rgba(0, 0, 0, .7);
 }
 .nav-header .header-logo {
   float: left;

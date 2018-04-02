@@ -2,7 +2,18 @@
   <div class="">
     <Header></Header>
     <div class="main-content">
-      <div id="home-sec"></div>
+      <div id="home-sec">
+        <swiper :options="swiperOption" ref="mainSwiper">
+          <!-- slides -->
+          <swiper-slide><a href="#" class="link-slide img1"></a></swiper-slide>
+          <swiper-slide><a href="#" class="link-slide img2"></a></swiper-slide>
+          <!-- Optional controls -->
+          <div class="swiper-pagination"  slot="pagination"></div>
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+          <div class="swiper-scrollbar"   slot="scrollbar"></div>
+        </swiper>
+      </div>
       <div id="aboutUs-sec" class="clearfix">
         <p class="sec-title">关于我们</p>
         <div class="address-map">地图位置</div>
@@ -28,15 +39,38 @@
 <script>
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import {swiper,swiperSlide} from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 export default {
   data(){
     return {
-
+      swiperOption: {
+        loop: true,
+        // 分页器
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        // 前进后退按钮
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }
+      }
     }
   },
   components: {
     Header,
-    Footer
+    Footer,
+    swiper,
+    swiperSlide
+  },
+  computed: {
+    swiper(){
+      return this.$refs.mainSwiper.swiper
+    }
+  },
+  mounted(){
+    this.swiper.slideTo(3,1000, false)
   }
 }
 </script>
@@ -47,8 +81,21 @@ ul {
   padding: 0;
 }
 #home-sec {
-  height: 530px;
-  background-color: gray;
+  padding-top: 50px;
+  background-color: rgba(0, 0, 0, .7);
+}
+#home-sec .swiper-slide {
+  height: 500px;
+}
+#home-sec .swiper-slide > a.link-slide {
+  height: 500px;
+  display: block;
+}
+#home-sec .swiper-wrapper a.link-slide.img1 {
+  background-color: red;
+}
+#home-sec .swiper-wrapper a.link-slide.img2 {
+  background-color: blue;
 }
 #aboutUs-sec,
 #partner-sec {
@@ -61,6 +108,11 @@ ul {
 #aboutUs-sec .company-info {
   float: left;
   width: 50%;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+#aboutUs-sec .company-info {
+  padding-left: 30px;
 }
 .sec-title {
   text-align: center;
