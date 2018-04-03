@@ -3,12 +3,18 @@
     <div :class="isScroll?'nav-header active':'nav-header'">
       <a class="header-logo" href="javascript:;"></a>
       <ul class="header-nav">
-        <li><a href="#">首页</a></li>
+        <li>
+          <router-link to="/">首页</router-link>
+        </li>
         <li>
           <a href="javascript:;" @mouseover="showSolutionMore">解决方案</a>
           <ul :class="isShowMore?'solution-more active':'solution-more'">
-            <li><a href="#">汽车销售系统</a></li>
-            <li><a href="#">签证云</a></li>
+            <li>
+              <router-link to="car">汽车销售系统</router-link>
+            </li>
+            <li>
+              <router-link to="visa">签证云</router-link>
+            </li>
           </ul>
         </li>
         <li><a href="#">关于我们</a></li>

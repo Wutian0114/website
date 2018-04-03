@@ -1,38 +1,36 @@
 <template>
   <div class="">
     <Header></Header>
-    <div class="main-content">
-      <div id="home-sec">
-        <swiper :options="swiperOption" ref="mainSwiper">
-          <!-- slides -->
-          <swiper-slide><a href="#" class="link-slide img1"></a></swiper-slide>
-          <swiper-slide><a href="#" class="link-slide img2"></a></swiper-slide>
-          <!-- Optional controls -->
-          <div class="swiper-pagination"  slot="pagination"></div>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-          <div class="swiper-scrollbar"   slot="scrollbar"></div>
-        </swiper>
+    <div id="home-sec">
+      <swiper :options="swiperOption" ref="mainSwiper">
+        <!-- slides -->
+        <swiper-slide><a href="#" class="link-slide img1"></a></swiper-slide>
+        <swiper-slide><a href="#" class="link-slide img2"></a></swiper-slide>
+        <!-- Optional controls -->
+        <div class="swiper-pagination"  slot="pagination"></div>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+        <div class="swiper-scrollbar"   slot="scrollbar"></div>
+      </swiper>
+    </div>
+    <div id="aboutUs-sec" class="clearfix">
+      <p class="sec-title">关于我们</p>
+      <div class="address-map">
+        <div id="allmap"></div>
       </div>
-      <div id="aboutUs-sec" class="clearfix">
-        <p class="sec-title">关于我们</p>
-        <div class="address-map">
-          <div id="allmap"></div>
-        </div>
-        <div class="company-info">
-          <p>这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。</p>
-          <p>详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息</p>
-        </div>
+      <div class="company-info">
+        <p>这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。</p>
+        <p>详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息</p>
       </div>
-      <div id="partner-sec" class="clearfix">
-        <p class="sec-title">合作伙伴</p>
-        <ul>
-          <li><a href="https://anymod.com/" target="_blank"><img src="../assets/img/anymod.png"></a></li>
-          <li><a href="https://chaitin.cn/en/" target="_blank"><img src="../assets/img/chaitin.png"></a></li>
-          <li><a href="https://laravel.com/" target="_blank"><img src="../assets/img/laravel.png"></a></li>
-          <li><a href="https://vueschool.io/" target="_blank"><img src="../assets/img/vueschool.png"></a></li>
-        </ul>
-      </div>
+    </div>
+    <div id="partner-sec" class="clearfix">
+      <p class="sec-title">合作伙伴</p>
+      <ul>
+        <li><a href="https://anymod.com/" target="_blank"><img src="../assets/img/anymod.png"></a></li>
+        <li><a href="https://chaitin.cn/en/" target="_blank"><img src="../assets/img/chaitin.png"></a></li>
+        <li><a href="https://laravel.com/" target="_blank"><img src="../assets/img/laravel.png"></a></li>
+        <li><a href="https://vueschool.io/" target="_blank"><img src="../assets/img/vueschool.png"></a></li>
+      </ul>
     </div>
     <Footer></Footer>
   </div>
@@ -131,14 +129,6 @@ ul {
 }
 #aboutUs-sec .company-info {
   padding-left: 30px;
-}
-.sec-title {
-  text-align: center;
-  font-size: 20px;
-  font-weight: bolder;
-  border-bottom: 3px solid #32d28c;
-  line-height: 50px;
-  text-align: center;
 }
 #partner-sec {
   min-height: 300px;
