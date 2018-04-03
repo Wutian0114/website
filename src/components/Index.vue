@@ -16,7 +16,9 @@
       </div>
       <div id="aboutUs-sec" class="clearfix">
         <p class="sec-title">关于我们</p>
-        <div class="address-map">地图位置</div>
+        <div class="address-map">
+          <div id="allmap"></div>
+        </div>
         <div class="company-info">
           <p>这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。这里是公司的相关信息。</p>
           <p>详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息详细信息</p>
@@ -70,7 +72,22 @@ export default {
     }
   },
   mounted(){
-    this.swiper.slideTo(3,1000, false)
+    this.swiper.slideTo(3,1000, false);
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");    // 创建Map实例
+    var point = new BMap.Point(120.074007,30.274525); //将标注点转化成地图上的点
+    var marker = new BMap.Marker(point); //将点转化成标注点
+    map.addOverlay(marker);  //将标注点添加到地图上
+    map.centerAndZoom(new BMap.Point(120.074007,30.274525), 17);  // 初始化地图,设置中心点坐标和地图级别
+    //添加地图类型控件
+    map.addControl(new BMap.MapTypeControl({
+        mapTypes:[
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+        ]
+      })
+    );
+    map.setCurrentCity("杭州");          // 设置地图显示的城市 此项是必须设置的
   }
 }
 </script>
@@ -101,15 +118,16 @@ ul {
 #partner-sec {
   padding: 0 50px;
 }
-#aboutUs-sec {
-  min-height: 500px;
-}
 #aboutUs-sec .address-map,
 #aboutUs-sec .company-info {
   float: left;
   width: 50%;
   box-sizing: border-box;
   padding: 0 10px;
+  min-height: 300px;
+}
+#aboutUs-sec #allmap {
+  height: 300px;
 }
 #aboutUs-sec .company-info {
   padding-left: 30px;
