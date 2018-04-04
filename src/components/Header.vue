@@ -6,9 +6,9 @@
         <li>
           <router-link to="/">首页</router-link>
         </li>
-        <li>
-          <a href="javascript:;" @mouseover="showSolutionMore">解决方案</a>
-          <ul :class="isShowMore?'solution-more active':'solution-more'">
+        <li @mouseenter="showSolutionMore" @mouseleave="hideSolutionMore">
+          <a href="javascript:;">解决方案</a>
+          <ul :class="['solution-more',{active:isShowMore}]">
             <li>
               <router-link to="car">汽车销售系统</router-link>
             </li>
@@ -17,9 +17,15 @@
             </li>
           </ul>
         </li>
-        <li><a href="#">关于我们</a></li>
-        <li><a href="#">联系方式</a></li>
-        <li><a href="#">申请试用</a></li>
+        <li>
+          <router-link to="/">关于我们</router-link>
+        </li>
+        <li>
+          <a href="#contactUs-sec">联系方式</a>
+        </li>
+        <li>
+          <router-link to="apply">申请试用</router-link>
+        </li>
       </ul>
     </div>
   </div>
@@ -46,11 +52,10 @@ export default {
       }
     },
     showSolutionMore(){
-      if(this.isShowMore){
-        this.isShowMore = false;
-      }else {
-        this.isShowMore = true;
-      }
+      this.isShowMore = true;
+    },
+    hideSolutionMore(){
+      this.isShowMore = false;
     }
   }
 }
