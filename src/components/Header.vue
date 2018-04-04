@@ -10,10 +10,10 @@
           <a href="javascript:;">解决方案</a>
           <ul :class="['solution-more',{active:isShowMore}]">
             <li>
-              <router-link to="car">汽车销售系统</router-link>
+              <router-link to="visa">签证云</router-link>
             </li>
             <li>
-              <router-link to="visa">签证云</router-link>
+              <router-link to="car">汽车销售系统</router-link>
             </li>
           </ul>
         </li>
