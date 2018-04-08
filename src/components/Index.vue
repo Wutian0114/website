@@ -131,7 +131,7 @@ ul {
   padding-left: 30px;
 }
 #partner-sec {
-  min-height: 300px;
+  min-height: 200px;
 }
 #partner-sec ul > li {
   float: left;
